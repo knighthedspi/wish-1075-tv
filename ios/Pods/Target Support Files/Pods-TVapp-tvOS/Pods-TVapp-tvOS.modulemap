@@ -1,0 +1,6 @@
+module Pods_TVapp_tvOS {
+  umbrella header "Pods-TVapp-tvOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

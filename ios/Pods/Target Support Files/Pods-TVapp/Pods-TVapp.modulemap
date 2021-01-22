@@ -1,0 +1,6 @@
+module Pods_TVapp {
+  umbrella header "Pods-TVapp-umbrella.h"
+
+  export *
+  module * { export * }
+}
