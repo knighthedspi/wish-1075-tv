@@ -1,7 +1,0 @@
-module YogaKit {
-  umbrella header "YogaKit-tvOS-umbrella.h"
-  exclude header "YogaKit-iOS-umbrella.h"
-
-  export *
-  module * { export * }
-}

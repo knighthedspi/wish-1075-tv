@@ -1,1 +1,0 @@
-../../../Target Support Files/React-Core-iOS/React-Core-iOS-umbrella.h
