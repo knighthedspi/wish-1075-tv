@@ -17,6 +17,7 @@ import {
   Text,
   useTVEventHandler,
   HWFocusEvent,
+  HWKeyEvent,
 } from 'react-native';
 
 import {
@@ -33,7 +34,7 @@ declare const global: {HermesInternal: null | {}};
 
 const App = () => {
   const [lastEventType, setLastEventType] = React.useState('');
-  const myTVEventHandler = (evt: HWFocusEvent) => {
+  const myTVEventHandler = (evt: HWKeyEvent) => {
     setLastEventType(evt.eventType);
   };
   useTVEventHandler(myTVEventHandler);
