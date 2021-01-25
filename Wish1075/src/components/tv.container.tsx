@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react"
 import { Image, StyleSheet, View } from "react-native"
 import MusicPlayer from "./music-player.component"
-import { getHls } from './../services/api.service'
+import { getHls, getPrograms } from './../services/api.service'
+import { Program } from "../models/program"
 
 const TvContainer = () => {
     const [hlsUri, setHlsUri] = useState('')
+    const [programs, setPrograms] = useState<Program[]>([])
+    const [hoveredProgram, setHoveredProgram] = useState<Program | null>(null)
 
     useEffect(() => {
-        // fetch programs
-        // https://www.wish1075.com/api/programs/get_programs_by_day/
-        // https://www.wish1075.com/api/programs/get_programs_by_day/?day=saturday
-
         getHls().then(x => {
             setHlsUri(x.posts[0].excerpt)
+        })
+
+        getPrograms().then(x => {
+            setPrograms(x.programs)
         })
     }, [])
 
