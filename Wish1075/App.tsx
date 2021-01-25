@@ -29,6 +29,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import 'react-native/tvos-types.d';
+import TvContainer from './src/components/tv.container';
 
 declare const global: {HermesInternal: null | {}};
 
@@ -44,7 +45,8 @@ const App = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
+          <TvContainer></TvContainer>
+          {/* <Header />
           <View style={styles.engine}>
             <Text style={styles.footer}>TVEvent: {lastEventType}</Text>
             {global.HermesInternal == null ? null : (
@@ -78,7 +80,7 @@ const App = () => {
               </Text>
             </View>
             <LearnMoreLinks />
-          </View>
+          </View> */}
         </ScrollView>
       </SafeAreaView>
     </>
@@ -87,7 +89,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: '#170128',
+    height: '100%'
   },
   engine: {
     position: 'absolute',
