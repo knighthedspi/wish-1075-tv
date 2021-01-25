@@ -1,14 +1,19 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { Image, StyleSheet, View } from "react-native"
 import MusicPlayer from "./music-player.component"
+import { getHls } from './../services/api.service'
 
 const TvContainer = () => {
+    const [hlsUri, setHlsUri] = useState('')
+
     useEffect(() => {
         // fetch programs
         // https://www.wish1075.com/api/programs/get_programs_by_day/
         // https://www.wish1075.com/api/programs/get_programs_by_day/?day=saturday
 
-        // https://www.wish1075.com/api/get_recent_posts/?post_type=streaming
+        getHls().then(x => {
+            setHlsUri(x.posts[0].excerpt)
+        })
     }, [])
 
     return (
@@ -17,7 +22,7 @@ const TvContainer = () => {
                 <Image source={require('./../images/wish-logo.png')}></Image>
             </View>
 
-            <MusicPlayer></MusicPlayer>
+            <MusicPlayer hlsUri={hlsUri}></MusicPlayer>
         </View>
     )
 }

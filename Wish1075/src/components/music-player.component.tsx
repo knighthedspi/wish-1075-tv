@@ -3,7 +3,11 @@ import { Image, StyleSheet, View } from "react-native"
 import { Colors } from "../constants/Colors"
 import Video from 'react-native-video'
 
-const MusicPlayer = () => {
+interface Props {
+    hlsUri: string
+}
+
+const MusicPlayer = (props: Props) => {
     const [playing, setPlaying] = useState(false)
 
     const videoError = (error: any) => {
@@ -11,10 +15,8 @@ const MusicPlayer = () => {
         setPlaying(false)
     }
 
-    const link = 'https://www.wish1075.com/radio/wish.m3u8'
-
     useEffect(() => {
-        setPlaying(false)
+        setPlaying(true)
     }, [])
 
     const play = () => {
@@ -27,7 +29,7 @@ const MusicPlayer = () => {
 
     return (
         <View style={styles.musicContainer}>
-            <Video source={{ uri: link }}
+            <Video source={{ uri: props.hlsUri }}
                 paused={!playing }
                 audioOnly={true}
                 playInBackground={true}
