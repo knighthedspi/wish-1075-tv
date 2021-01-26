@@ -14,12 +14,16 @@ interface Props {
 const ProgramList = (props: Props) => {
     const { programs, hoveredProgram, onHoverProgram } = props
 
+    const getRandomInt = (max: number) => {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+
     const renderItem = (program: Program ) => {
-        const isHovered = hoveredProgram?.id === program.id
+        const isHovered = hoveredProgram?.id  === program.id && hoveredProgram?.time_start === program.time_start
 
         return (
             <TouchableHighlight
-                key={program.id}
+                key={program.id + program.time_start}
                 style={styles.listItem}
                 onFocus={() => {
                     onHoverProgram(program)
@@ -31,21 +35,27 @@ const ProgramList = (props: Props) => {
                     {
                         isHovered ?
                         <LinearGradient
-                            // start={{x: 0, y: 0}} end={{x: 1, y: 0}}
                             start={{x: 0.0, y: 0.0}}
                             end={{x: 1.0, y: 1.0}}
                             colors={['#FD3E86', '#FE6F01']}
                             style={styles.imageContainerHover}>
-                            <Image source={{uri: program.logo}} style={styles.imageHover}/>
+                            {
+                                program.logo ?
+                                <Image source={{uri: program.logo}} style={styles.imageHover}/> :
+                                <Image source={require('./../images/wish-album.png')} style={styles.imageHover}/>
+                            }
                         </LinearGradient> :
                         <View style={styles.imageContainer}>
-                            <Image source={{uri: program.logo}} style={styles.image}/>
+                            {
+                                program.logo ?
+                                <Image source={{uri: program.logo}} style={styles.imageHover}/> :
+                                <Image source={require('./../images/wish-album.png')} style={styles.imageHover}/>
+                            }
                         </View>
                     }
                 </View>
             </TouchableHighlight>
         )
-        // border-image-source: linear-gradient(135.58deg, #FF34AE -0.15%, #BA7051 55.14%, #FF7A00 100%);
     }
 
     return (
@@ -53,7 +63,7 @@ const ProgramList = (props: Props) => {
             <FlatList
                 data={programs}
                 renderItem={({ item }: { item: Program }) => renderItem(item)}
-                keyExtractor={(item: Program, index: number) => item.id}
+                keyExtractor={(item: Program, index: number) => item.id + item.time_start}
                 horizontal={true}
                 contentContainerStyle={{ alignItems: 'center', alignContent: 'center' }}
             />
@@ -63,10 +73,10 @@ const ProgramList = (props: Props) => {
 
 const styles = StyleSheet.create({
     programContainer: {
-        // backgroundColor: 'black',
         marginLeft: 20,
         marginRight: 20,
         marginTop: 25,
+        minHeight: 200,
     },
     listItem: {
         marginRight: 5,

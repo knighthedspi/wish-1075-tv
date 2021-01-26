@@ -21,7 +21,7 @@ const ProgramDetails = (props: Props) => {
             </View>
 
             <View style={styles.subtitleContainer}>
-                <Text style={styles.subtitle}>With { program.dj }</Text>
+                <Text style={styles.subtitle}>{ program.dj ? `with ${program.dj}` : ''}</Text>
             </View>
 
             <View style={styles.detailsContainer}>
@@ -29,7 +29,6 @@ const ProgramDetails = (props: Props) => {
             </View>
         </View>
     )
-
 }
 
 const styles = StyleSheet.create({

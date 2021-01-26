@@ -10,7 +10,13 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "date-fns": "^2.16.1",
+    "@js-joda/core": "^3.2.0",
+    "@js-joda/locale": "^3.2.2",
+    "@js-joda/locale_en": "^3.2.2",
+    "@js-joda/locale_en-us": "^3.2.2",
+    "@js-joda/timezone": "^2.5.0",
+    "cldr-data": "^36.0.0",
+    "cldrjs": "^0.5.5",
     "html-entities": "^2.0.6",
     "react": "16.13.1",
     "react-native": "npm:react-native-tvos@0.63.3-0",
