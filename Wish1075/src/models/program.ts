@@ -12,5 +12,5 @@ export interface Program {
 
 export interface ProgramContainer {
     status: string;
-    programs: Program[];
+    programs: any[];
 }

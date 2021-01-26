@@ -57,14 +57,15 @@ const MusicPlayer = (props: Props) => {
 const styles = StyleSheet.create({
     musicContainer: {
         width: '100%',
-        height: 100,
+        height: 80,
+        marginTop: 30
     },
     buttonContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 1,
-        borderColor: 'red'
+        // borderWidth: 1,
+        // borderColor: 'red'
     },
     backgroundVideo: {
         position: 'absolute',

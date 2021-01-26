@@ -1,71 +1,111 @@
 import React, { useEffect, useState } from "react"
-import { FlatList, Image, StatusBar, StyleSheet, Text, TouchableHighlight, View } from "react-native"
+import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableHighlight, View } from "react-native"
 import { Colors } from "../constants/Colors"
 import { Program } from "../models/program"
 import { decode } from 'html-entities'
+import LinearGradient from 'react-native-linear-gradient'
 
 interface Props {
     programs: Program[]
+    hoveredProgram: Program | null
+    onHoverProgram: (program: Program) => void
 }
 
 const ProgramList = (props: Props) => {
-    const renderItem = ({ item }: { item: Program }) => {
+    const { programs, hoveredProgram, onHoverProgram } = props
+
+    const renderItem = (program: Program ) => {
+        const isHovered = hoveredProgram?.id === program.id
+
         return (
             <TouchableHighlight
-              style={styles.listItem}>
+                key={program.id}
+                style={styles.listItem}
+                onFocus={() => {
+                    onHoverProgram(program)
+                }}>
                 <View>
-                  <View style={styles.imageContainer}>
-                    <Image source={{uri: item.logo}} style={styles.image}/>
-                  </View>
-                  <View style={styles.detailsContainer}>
-                    <Text style={styles.title}>{decode(item.title)}</Text>
-                  </View>
+                    <View style={{ alignItems: 'flex-end' }}>
+                        { isHovered ? <Text style={styles.title}>{program.time_start} - {program.time_end} (GMT+8)</Text> : <Text>&nbsp;</Text> }
+                    </View>
+                    {
+                        isHovered ?
+                        <LinearGradient
+                            // start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+                            start={{x: 0.0, y: 0.0}}
+                            end={{x: 1.0, y: 1.0}}
+                            colors={['rgba(255,52,174,1)', 'rgba(186,112,81,1)', 'rgba(255,122,0,1)']}
+                            style={styles.imageContainerHover}>
+                            <Image source={{uri: program.logo}} style={styles.imageHover}/>
+                        </LinearGradient> :
+                        <View style={styles.imageContainer}>
+                            <Image source={{uri: program.logo}} style={styles.image}/>
+                        </View>
+                    }
                 </View>
             </TouchableHighlight>
         )
+        // border-image-source: linear-gradient(135.58deg, #FF34AE -0.15%, #BA7051 55.14%, #FF7A00 100%);
     }
 
     return (
-        <View style={styles.musicContainer}>
+        <View style={styles.programContainer}>
             <FlatList
-                data={props.programs}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
+                data={programs}
+                renderItem={({ item }: { item: Program }) => renderItem(item)}
+                keyExtractor={(item: Program, index: number) => item.id}
+                horizontal={true}
+                contentContainerStyle={{ alignItems: 'center', alignContent: 'center' }}
             />
         </View>
     )
-
 }
 
 const styles = StyleSheet.create({
-    musicContainer: {
-        backgroundColor: 'red'
-    },
-    backgroundVideo: {
-        position: 'absolute',
-        bottom: 0,
-        right: 0,
-        backgroundColor: Colors.text,
-        width: 1,
-        height: 1
+    programContainer: {
+        // backgroundColor: 'black',
+        marginLeft: 20,
+        marginRight: 20,
+        marginTop: 40,
     },
     listItem: {
-
+        marginRight: 5,
     },
     imageContainer: {
-
+        padding: 7,
+        opacity: .5,
+    },
+    imageContainerHover: {
+        padding: 7,
+        opacity: 1,
     },
     image: {
-
+        height: 200,
+        width: 200,
+        resizeMode: 'cover',
+        opacity: 0.5
+    },
+    imageHover: {
+        height: 190,
+        width: 190,
+        resizeMode: 'cover',
+        // border-image-source: linear-gradient(135.58deg, #FF34AE -0.15%, #BA7051 55.14%, #FF7A00 100%);
     },
     detailsContainer: {
-
+        paddingLeft: 20,
+        paddingRight: 20,
     },
     title: {
-
+        color: Colors.text,
+        fontSize: 12,
+        marginBottom: 2,
     },
-    subtitle: {
-
+    listContainer: {
+        flex: 1,
+        backgroundColor: Colors.background,
+    },
+    list: {
+        minHeight: 100,
     }
 })
 

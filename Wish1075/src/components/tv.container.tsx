@@ -3,6 +3,8 @@ import { Image, StyleSheet, View } from "react-native"
 import MusicPlayer from "./music-player.component"
 import { getHls, getPrograms } from './../services/api.service'
 import { Program } from "../models/program"
+import ProgramList from "./programs.component"
+import LinearGradient from "react-native-linear-gradient"
 
 // https://www.figma.com/file/E8cbUpuCHZBpntbK2BwG3S/Wish-TV-App?node-id=2%3A71
 
@@ -19,7 +21,7 @@ const TvContainer = () => {
         })
 
         getPrograms().then(x => {
-            setPrograms(x.programs)
+            setPrograms(x.programs[0])
         }).catch(e => {
             console.log(e)
         })
@@ -27,11 +29,17 @@ const TvContainer = () => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.imageContainer}>
-                <Image source={require('./../images/wish-logo.png')}></Image>
-            </View>
+            <LinearGradient
+                colors={['#533E08', '#260142', '#170128']}
+            >
+                <View style={styles.imageContainer}>
+                    <Image source={require('./../images/wish-logo.png')}></Image>
+                </View>
 
-            <MusicPlayer hlsUri={hlsUri}></MusicPlayer>
+                <ProgramList programs={programs} hoveredProgram={hoveredProgram} onHoverProgram={setHoveredProgram}></ProgramList>
+
+                <MusicPlayer hlsUri={hlsUri}></MusicPlayer>
+            </LinearGradient>
         </View>
     )
 }

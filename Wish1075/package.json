@@ -15,6 +15,7 @@
     "react": "16.13.1",
     "react-native": "npm:react-native-tvos@0.63.3-0",
     "react-native-ionicons": "^4.6.5",
+    "react-native-linear-gradient": "^2.5.6",
     "react-native-video": "^5.1.1"
   },
   "devDependencies": {
