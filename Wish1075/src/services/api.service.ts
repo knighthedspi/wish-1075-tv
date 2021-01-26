@@ -11,5 +11,3 @@ const getPrograms = (day: string) => {
 }
 
 export { getHls, getPrograms }
-
-// pattern using (localized) text not implemented, use js-joda-locale plugin

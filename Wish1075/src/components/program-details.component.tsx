@@ -18,6 +18,12 @@ const ProgramDetails = (props: Props) => {
         <View style={styles.programDetailsContainer}>
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>{ program.title }</Text>
+                {
+                    program.live ?
+                    <View style={styles.liveContainer}>
+                        <Text style={styles.liveLabel}>LIVE</Text>
+                    </View> : null
+                }
             </View>
 
             <View style={styles.subtitleContainer}>
@@ -39,6 +45,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     titleContainer: {
+        flexDirection: 'row',
     },
     title: {
         color: Colors.text,
@@ -61,7 +68,19 @@ const styles = StyleSheet.create({
         fontSize: 10,
         width: 700,
         textAlign: 'center',
-    }
+    },
+    liveContainer: {
+        marginLeft: 10,
+        padding: 3,
+        borderRadius: 3,
+        backgroundColor: '#FF003D',
+        height: 20,
+    },
+    liveLabel: {
+        color: Colors.text,
+        fontSize: 10,
+        fontWeight: 'bold',
+    },
 })
 
 export default ProgramDetails

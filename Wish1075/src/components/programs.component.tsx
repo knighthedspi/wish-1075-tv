@@ -14,10 +14,6 @@ interface Props {
 const ProgramList = (props: Props) => {
     const { programs, hoveredProgram, onHoverProgram } = props
 
-    const getRandomInt = (max: number) => {
-        return Math.floor(Math.random() * Math.floor(max));
-    }
-
     const renderItem = (program: Program ) => {
         const isHovered = hoveredProgram?.id  === program.id && hoveredProgram?.time_start === program.time_start
 
@@ -29,7 +25,13 @@ const ProgramList = (props: Props) => {
                     onHoverProgram(program)
                 }}>
                 <View>
-                    <View style={{ alignItems: 'flex-end' }}>
+                    <View style={styles.listItemHeader}>
+                        {
+                            isHovered && program.live ?
+                            <View style={styles.liveContainer}>
+                                <Text style={styles.liveLabel}>LIVE</Text>
+                            </View> : null
+                        }
                         { isHovered ? <Text style={styles.title}>{program.time_start} - {program.time_end} (GMT+8)</Text> : <Text>&nbsp;</Text> }
                     </View>
                     {
@@ -78,8 +80,14 @@ const styles = StyleSheet.create({
         marginTop: 25,
         minHeight: 200,
     },
+    listItemHeader: {
+        alignItems: 'flex-end',
+        position: 'relative',
+        marginBottom: 2
+    },
     listItem: {
         marginRight: 5,
+        paddingTop: 5,
     },
     imageContainer: {
         padding: 7,
@@ -99,7 +107,6 @@ const styles = StyleSheet.create({
         height: 170,
         width: 170,
         resizeMode: 'cover',
-        // border-image-source: linear-gradient(135.58deg, #FF34AE -0.15%, #BA7051 55.14%, #FF7A00 100%);
     },
     detailsContainer: {
         paddingLeft: 20,
@@ -107,7 +114,7 @@ const styles = StyleSheet.create({
     },
     title: {
         color: Colors.text,
-        fontSize: 10,
+        fontSize: 9,
         marginBottom: 2,
     },
     listContainer: {
@@ -116,7 +123,22 @@ const styles = StyleSheet.create({
     },
     list: {
         minHeight: 100,
-    }
+    },
+    liveContainer: {
+        position: 'absolute',
+        left: 0,
+        top: -2,
+        padding: 1,
+        paddingLeft: 4,
+        paddingRight: 4,
+        borderRadius: 3,
+        backgroundColor: '#FF003D',
+    },
+    liveLabel: {
+        color: Colors.text,
+        fontSize: 10,
+        fontWeight: 'bold',
+    },
 })
 
 export default ProgramList
