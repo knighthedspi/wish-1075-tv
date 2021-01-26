@@ -33,6 +33,7 @@ const MusicPlayer = (props: Props) => {
                     {
                         playing ?
                         <TouchableHighlight
+                            underlayColor='transparent'
                             onPress={pause}
                             onFocus={() => setFocus(true)}
                             onBlur={() => setFocus(false)}>
@@ -43,6 +44,7 @@ const MusicPlayer = (props: Props) => {
                             onFocus={() => setFocus(true)}
                             onBlur={() => setFocus(false)}
                             disabled={!hlsUri}
+                            underlayColor='transparent'
                             style={styles.buttonPlay}>
                             <Icon name="play" size={focus ? 45 : 35} color={ !hlsUri ? Colors.buttonColorDisable : Colors.buttonColor } />
                         </TouchableHighlight>
