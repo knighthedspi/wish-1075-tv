@@ -50,7 +50,9 @@ const TvContainer = () => {
     return (
         <View style={styles.container}>
             <LinearGradient
-                colors={['#533E08', '#260142', '#170128']}
+                // colors={['#533E08', '#260142', '#170128']} // brown gradient
+                colors={['#531A08', '#170128']} // orange gradient
+                // colors={['#53084B', '#170128']} // violet gradient
             >
                 <View style={styles.imageContainer}>
                     <Image source={require('./../images/wish-logo.png')}></Image>
