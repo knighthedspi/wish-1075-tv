@@ -5,6 +5,7 @@ import { getHls, getPrograms } from './../services/api.service'
 import { Program } from "../models/program"
 import ProgramList from "./programs.component"
 import LinearGradient from "react-native-linear-gradient"
+import ProgramDetails from "./program-details.component"
 
 // https://www.figma.com/file/E8cbUpuCHZBpntbK2BwG3S/Wish-TV-App?node-id=2%3A71
 
@@ -38,6 +39,8 @@ const TvContainer = () => {
 
                 <ProgramList programs={programs} hoveredProgram={hoveredProgram} onHoverProgram={setHoveredProgram}></ProgramList>
 
+                <ProgramDetails program={hoveredProgram}></ProgramDetails>
+
                 <MusicPlayer hlsUri={hlsUri}></MusicPlayer>
             </LinearGradient>
         </View>
@@ -50,7 +53,8 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     imageContainer: {
-        padding: 10,
+        paddingTop: 10,
+        paddingLeft: 20,
     }
 })
 

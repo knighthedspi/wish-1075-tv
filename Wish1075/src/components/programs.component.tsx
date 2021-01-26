@@ -34,7 +34,7 @@ const ProgramList = (props: Props) => {
                             // start={{x: 0, y: 0}} end={{x: 1, y: 0}}
                             start={{x: 0.0, y: 0.0}}
                             end={{x: 1.0, y: 1.0}}
-                            colors={['rgba(255,52,174,1)', 'rgba(186,112,81,1)', 'rgba(255,122,0,1)']}
+                            colors={['#FD3E86', '#FE6F01']}
                             style={styles.imageContainerHover}>
                             <Image source={{uri: program.logo}} style={styles.imageHover}/>
                         </LinearGradient> :
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
         // backgroundColor: 'black',
         marginLeft: 20,
         marginRight: 20,
-        marginTop: 40,
+        marginTop: 25,
     },
     listItem: {
         marginRight: 5,
@@ -80,14 +80,14 @@ const styles = StyleSheet.create({
         opacity: 1,
     },
     image: {
-        height: 200,
-        width: 200,
+        height: 180,
+        width: 180,
         resizeMode: 'cover',
         opacity: 0.5
     },
     imageHover: {
-        height: 190,
-        width: 190,
+        height: 170,
+        width: 170,
         resizeMode: 'cover',
         // border-image-source: linear-gradient(135.58deg, #FF34AE -0.15%, #BA7051 55.14%, #FF7A00 100%);
     },
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     },
     title: {
         color: Colors.text,
-        fontSize: 12,
+        fontSize: 10,
         marginBottom: 2,
     },
     listContainer: {

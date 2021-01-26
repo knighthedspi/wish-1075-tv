@@ -32,10 +32,10 @@ const MusicPlayer = (props: Props) => {
                     {
                         playing ?
                         <TouchableHighlight onPress={pause}>
-                            <Icon name="pause" size={35} color={Colors.buttonColor} />
+                            <Icon name="pause" size={35} color={Colors.buttonColor} style={{backgroundColor: 'transparent'}}  />
                         </TouchableHighlight> :
                         <TouchableHighlight onPress={play} disabled={!hlsUri} style={styles.buttonPlay}>
-                            <Icon name="play" size={35} color={ !hlsUri ? Colors.buttonColorDisable : Colors.buttonColor } />
+                            <Icon name="play" size={35} color={ !hlsUri ? Colors.buttonColorDisable : Colors.buttonColor } style={{backgroundColor: 'transparent'}} />
                         </TouchableHighlight>
                     }
                 </View>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     musicContainer: {
         width: '100%',
         height: 80,
-        marginTop: 30
+        marginTop: 25
     },
     buttonContainer: {
         flex: 1,
