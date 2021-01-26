@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { Image, StyleSheet, View } from "react-native"
+import { Image, StyleSheet, TouchableHighlight, View } from "react-native"
 import { Colors } from "../constants/Colors"
 import Video from 'react-native-video'
+import Icon from 'react-native-ionicons'
 
 interface Props {
     hlsUri: string
@@ -9,15 +10,12 @@ interface Props {
 
 const MusicPlayer = (props: Props) => {
     const [playing, setPlaying] = useState(false)
+    const { hlsUri } = props
 
     const videoError = (error: any) => {
         console.log(error)
         setPlaying(false)
     }
-
-    useEffect(() => {
-        setPlaying(true)
-    }, [])
 
     const play = () => {
         setPlaying(true)
@@ -29,11 +27,25 @@ const MusicPlayer = (props: Props) => {
 
     return (
         <View style={styles.musicContainer}>
-            <Video source={{ uri: props.hlsUri }}
-                paused={!playing }
+            <View style={styles.buttonContainer}>
+                <View style={styles.container}>
+                    {
+                        playing ?
+                        <TouchableHighlight onPress={pause}>
+                            <Icon name="pause" size={35} color={Colors.buttonColor} />
+                        </TouchableHighlight> :
+                        <TouchableHighlight onPress={play} disabled={!hlsUri} style={styles.buttonPlay}>
+                            <Icon name="play" size={35} color={ !hlsUri ? Colors.buttonColorDisable : Colors.buttonColor } />
+                        </TouchableHighlight>
+                    }
+                </View>
+            </View>
+
+            <Video source={{ uri: hlsUri }}
+                paused={!playing || !hlsUri }
                 audioOnly={true}
-                playInBackground={true}
-                playWhenInactive={true}
+                playInBackground={false}
+                playWhenInactive={false}
                 ignoreSilentSwitch={'ignore'}
                 onError={videoError}
                 style={styles.backgroundVideo} />
@@ -44,7 +56,15 @@ const MusicPlayer = (props: Props) => {
 
 const styles = StyleSheet.create({
     musicContainer: {
-        backgroundColor: 'red'
+        width: '100%',
+        height: 100,
+    },
+    buttonContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: 'red'
     },
     backgroundVideo: {
         position: 'absolute',
@@ -54,6 +74,19 @@ const styles = StyleSheet.create({
         width: 1,
         height: 1
     },
+    container: {
+        width: 60,
+        height: 60,
+        borderRadius: 60 / 2,
+        backgroundColor: 'transparent',
+        borderColor: '#B69665',
+        borderWidth: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    buttonPlay: {
+        marginLeft: 7
+    }
 })
 
 export default MusicPlayer
