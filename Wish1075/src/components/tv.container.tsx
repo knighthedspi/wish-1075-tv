@@ -8,8 +8,8 @@ import LinearGradient from "react-native-linear-gradient"
 import ProgramDetails from "./program-details.component"
 
 import { DateTimeFormatter, Period, ZonedDateTime, ZoneId } from '@js-joda/core'
-import '@js-joda/timezone' // Just needs to be imported; registers itself automatically
-import { Locale } from '@js-joda/locale_en-us' // Get `Locale` from the prebuilt package of your choice
+import '@js-joda/timezone'
+import { Locale } from '@js-joda/locale_en-us'
 
 // https://www.figma.com/file/E8cbUpuCHZBpntbK2BwG3S/Wish-TV-App?node-id=2%3A71
 
@@ -67,9 +67,7 @@ const TvContainer = () => {
 }
 
 const getCurrentWeekDay = () => {
-    const date = ZonedDateTime.now(ZoneId.of('UTC+08:00'))
-    const formatter = DateTimeFormatter.ofPattern('e').withLocale(Locale.US)
-    const day = date.format(formatter)
+    const day = getCurrentPhtDateTime('e')
     let dayString = 'monday'
 
     switch(day) {
@@ -103,9 +101,7 @@ const setLiveProgram = (programs: Program[]) => {
         const start = myDate + convertTime12to24(time_start)
         const end = myDate + convertTime12to24(time_end, true)
 
-        const date = ZonedDateTime.now(ZoneId.of('UTC+08:00'))
-        const formatter = DateTimeFormatter.ofPattern('HH:mm').withLocale(Locale.US)
-        const currentTime = date.format(formatter)
+        const currentTime = getCurrentPhtDateTime('HH:mm')
         const current = myDate + currentTime
 
         const startDate = new Date(start) 
@@ -114,6 +110,14 @@ const setLiveProgram = (programs: Program[]) => {
 
         program.live = (startDate === currentDate || endDate === currentDate || (startDate < currentDate && endDate > currentDate))
     })
+}
+
+const getCurrentPhtDateTime = (format: string) => {
+    const date = ZonedDateTime.now(ZoneId.of('UTC+08:00'))
+    const formatter = DateTimeFormatter.ofPattern(format).withLocale(Locale.US)
+    const currentTime = date.format(formatter)
+
+    return currentTime;
 }
 
 const convertTime12to24 = (time12h: string, isEnd: boolean = false) => {

@@ -2,6 +2,7 @@ import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { Colors } from "../constants/Colors"
 import { Program } from "../models/program"
+import { decode } from 'html-entities'
 
 interface Props {
     program: Program | null
@@ -17,7 +18,7 @@ const ProgramDetails = (props: Props) => {
     return (
         <View style={styles.programDetailsContainer}>
             <View style={styles.titleContainer}>
-                <Text style={styles.title}>{ program.title }</Text>
+                <Text style={styles.title}>{ decode(program.title) }</Text>
                 {
                     program.live ?
                     <View style={styles.liveContainer}>
@@ -31,7 +32,7 @@ const ProgramDetails = (props: Props) => {
             </View>
 
             <View style={styles.detailsContainer}>
-                <Text style={styles.details}>{ program.excerpt }</Text>
+                <Text style={styles.details}>{ decode(program.excerpt) }</Text>
             </View>
         </View>
     )

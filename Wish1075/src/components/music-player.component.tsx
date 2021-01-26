@@ -28,14 +28,14 @@ const MusicPlayer = (props: Props) => {
     return (
         <View style={styles.musicContainer}>
             <View style={styles.buttonContainer}>
-                <View style={styles.container}>
+                <View style={styles.customBorder}>
                     {
                         playing ?
                         <TouchableHighlight onPress={pause}>
-                            <Icon name="pause" size={35} color={Colors.buttonColor} style={{backgroundColor: 'transparent'}}  />
+                            <Icon name="pause" size={35} color={Colors.buttonColor}  />
                         </TouchableHighlight> :
                         <TouchableHighlight onPress={play} disabled={!hlsUri} style={styles.buttonPlay}>
-                            <Icon name="play" size={35} color={ !hlsUri ? Colors.buttonColorDisable : Colors.buttonColor } style={{backgroundColor: 'transparent'}} />
+                            <Icon name="play" size={35} color={ !hlsUri ? Colors.buttonColorDisable : Colors.buttonColor } />
                         </TouchableHighlight>
                     }
                 </View>
@@ -64,8 +64,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // borderWidth: 1,
-        // borderColor: 'red'
     },
     backgroundVideo: {
         position: 'absolute',
@@ -75,7 +73,7 @@ const styles = StyleSheet.create({
         width: 1,
         height: 1
     },
-    container: {
+    customBorder: {
         width: 60,
         height: 60,
         borderRadius: 60 / 2,

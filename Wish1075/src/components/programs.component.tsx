@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react"
-import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableHighlight, View } from "react-native"
+import React from "react"
+import { FlatList, Image, StyleSheet, Text, TouchableHighlight, View } from "react-native"
 import { Colors } from "../constants/Colors"
 import { Program } from "../models/program"
-import { decode } from 'html-entities'
 import LinearGradient from 'react-native-linear-gradient'
 
 interface Props {
