@@ -10,6 +10,7 @@ interface Props {
 
 const MusicPlayer = (props: Props) => {
     const [playing, setPlaying] = useState(false)
+    const [focus, setFocus] = useState(false)
     const { hlsUri } = props
 
     const videoError = (error: any) => {
@@ -28,14 +29,22 @@ const MusicPlayer = (props: Props) => {
     return (
         <View style={styles.musicContainer}>
             <View style={styles.buttonContainer}>
-                <View style={styles.customBorder}>
+                <View style={focus ? styles.customBorderBig : styles.customBorder}>
                     {
                         playing ?
-                        <TouchableHighlight onPress={pause}>
-                            <Icon name="pause" size={35} color={Colors.buttonColor}  />
+                        <TouchableHighlight
+                            onPress={pause}
+                            onFocus={() => setFocus(true)}
+                            onBlur={() => setFocus(false)}>
+                            <Icon name="pause" size={focus ? 45 : 35} color={Colors.buttonColor}  />
                         </TouchableHighlight> :
-                        <TouchableHighlight onPress={play} disabled={!hlsUri} style={styles.buttonPlay}>
-                            <Icon name="play" size={35} color={ !hlsUri ? Colors.buttonColorDisable : Colors.buttonColor } />
+                        <TouchableHighlight
+                            onPress={play}
+                            onFocus={() => setFocus(true)}
+                            onBlur={() => setFocus(false)}
+                            disabled={!hlsUri}
+                            style={styles.buttonPlay}>
+                            <Icon name="play" size={focus ? 45 : 35} color={ !hlsUri ? Colors.buttonColorDisable : Colors.buttonColor } />
                         </TouchableHighlight>
                     }
                 </View>
@@ -77,6 +86,16 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         borderRadius: 60 / 2,
+        backgroundColor: 'transparent',
+        borderColor: '#B69665',
+        borderWidth: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    customBorderBig: {
+        width: 70,
+        height: 70,
+        borderRadius: 70 / 2,
         backgroundColor: 'transparent',
         borderColor: '#B69665',
         borderWidth: 1,
