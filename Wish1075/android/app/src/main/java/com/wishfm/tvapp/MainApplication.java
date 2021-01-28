@@ -1,4 +1,4 @@
-package com.wish1075;
+package com.wishfm.tvapp;
 
 import android.app.Application;
 import android.content.Context;

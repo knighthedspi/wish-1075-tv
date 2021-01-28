@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.wish1075">
+  package="com.wishfm.tvapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-      android:name=".MainApplication"
+      android:name="com.wishfm.tvapp.MainApplication"
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
@@ -12,7 +12,7 @@
       android:theme="@style/AppTheme">
 
       <activity
-        android:name=".SplashActivity"
+        android:name="com.wishfm.tvapp.SplashActivity"
         android:theme="@style/SplashTheme"
         android:label="@string/app_name">
         <intent-filter>
@@ -22,7 +22,7 @@
       </activity>
 
       <activity
-        android:name=".MainActivity"
+        android:name="com.wishfm.tvapp.MainActivity"
         android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
         android:launchMode="singleTask"
