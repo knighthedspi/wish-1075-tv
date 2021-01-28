@@ -220,6 +220,8 @@ PODS:
     - React-cxxreact (= 0.63.3-0)
     - React-jsi (= 0.63.3-0)
   - React-jsinspector (0.63.3-0)
+  - react-native-splash-screen (3.2.0):
+    - React
   - react-native-video (5.1.1):
     - React-Core
     - react-native-video/Video (= 5.1.1)
@@ -305,6 +307,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-video (from `../node_modules/react-native-video`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -365,6 +368,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-splash-screen:
+    :path: "../node_modules/react-native-splash-screen"
   react-native-video:
     :path: "../node_modules/react-native-video"
   React-RCTAnimation:
@@ -414,6 +419,7 @@ SPEC CHECKSUMS:
   React-jsi: 5ce5b7ca8fab0ad99f105eed24885378f58d413c
   React-jsiexecutor: ed40f5a2002cdc5c9551087d2ad07312f7692c8a
   React-jsinspector: 4f9ec704391789e4cfd5d6ef3da36a53ed6d17c5
+  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-video: 1574074179ecaf6a9dd067116c8f31bf9fec15c8
   React-RCTAnimation: aec69e10c3f7126c1c353b416613619581d5a6b1
   React-RCTBlob: e6e33514f6123e956ef17cb6253b6326bf949548
@@ -426,6 +432,6 @@ SPEC CHECKSUMS:
   Yoga: 5d20be5a2c1c18789d3181cbbff241010ff959e7
   YogaKit: 1e22bf2228b3a5ac8cc88965153061ae92c494b5
 
-PODFILE CHECKSUM: b02bf43e677c2bebd7156842a7e207d0039eba0b
+PODFILE CHECKSUM: ccee87cc9280ee7ac11e11b40e798fc01cbecfd1
 
 COCOAPODS: 1.9.3
