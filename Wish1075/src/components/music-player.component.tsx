@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     musicContainer: {
         width: '100%',
         height: 80,
-        marginTop: 25
+        marginTop: 20,
     },
     buttonContainer: {
         flex: 1,

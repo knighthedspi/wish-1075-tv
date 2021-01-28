@@ -41,9 +41,9 @@ const TvContainer = () => {
     }, [])
 
     const hoverProgram = (program: Program) => {
-        const clonedProgram = [...programs]
-        setLiveProgram(clonedProgram)
-        setPrograms(clonedProgram)
+        // const clonedProgram = [...programs]
+        // setLiveProgram(clonedProgram)
+        // setPrograms(clonedProgram)
         setHoveredProgram(program)
     }
 

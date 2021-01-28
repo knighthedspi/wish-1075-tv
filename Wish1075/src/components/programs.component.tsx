@@ -26,12 +26,12 @@ const ProgramList = (props: Props) => {
                 <View>
                     <View style={styles.listItemHeader}>
                         {
-                            isHovered && program.live ?
+                            false ?
                             <View style={styles.liveContainer}>
-                                <Text style={styles.liveLabel}>LIVE</Text>
+                                <Text style={styles.liveLabel}>NOW PLAYING</Text>
                             </View> : null
                         }
-                        { isHovered ? <Text style={styles.title}>{program.time_start} - {program.time_end} (GMT+8)</Text> : <Text>&nbsp;</Text> }
+                        { program.live ? <Text style={styles.title}>NOW PLAYING</Text> : <Text>&nbsp;</Text> }
                     </View>
                     {
                         isHovered ?
@@ -54,6 +54,7 @@ const ProgramList = (props: Props) => {
                             }
                         </View>
                     }
+                    { isHovered ? <Text style={styles.footer}>{program.time_start} - {program.time_end} (GMT+8)</Text> : <Text>&nbsp;</Text> }
                 </View>
             </TouchableHighlight>
         )
@@ -76,11 +77,11 @@ const styles = StyleSheet.create({
     programContainer: {
         marginLeft: 20,
         marginRight: 20,
-        marginTop: 25,
+        marginTop: 5,
         minHeight: 200,
     },
     listItemHeader: {
-        alignItems: 'flex-end',
+        alignItems: 'center',
         position: 'relative',
         marginBottom: 2
     },
@@ -113,8 +114,15 @@ const styles = StyleSheet.create({
     },
     title: {
         color: Colors.text,
-        fontSize: 9,
         marginBottom: 2,
+        fontSize: 12,
+        textTransform: 'uppercase',
+    },
+    footer: {
+        color: Colors.text,
+        marginBottom: 2,
+        fontSize: 10,
+        textTransform: 'uppercase',
     },
     listContainer: {
         flex: 1,

@@ -22,7 +22,7 @@ const ProgramDetails = (props: Props) => {
                 {
                     program.live ?
                     <View style={styles.liveContainer}>
-                        <Text style={styles.liveLabel}>LIVE</Text>
+                        <Text style={styles.liveLabel}>NOW PLAYING</Text>
                     </View> : null
                 }
             </View>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         padding: 3,
         borderRadius: 3,
-        backgroundColor: '#FF003D',
+        backgroundColor: Colors.red,
         height: 20,
     },
     liveLabel: {
