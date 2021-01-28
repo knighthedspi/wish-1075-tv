@@ -69,25 +69,31 @@ const TvContainer = () => {
 }
 
 const getCurrentWeekDay = () => {
-    const day = getCurrentPhtDateTime('e')
+    const day = getCurrentPhtDateTime('E')
     let dayString = 'monday'
 
     switch(day) {
+        case 'Tue':
         case '2':
             dayString = 'tuesday'
             break
+        case 'Wed':
         case '3':
             dayString = 'wednesday'
             break
+        case 'Thu':
         case '4':
             dayString = 'thursday'
             break
+        case 'Fri':
         case '5':
             dayString = 'friday'
             break
+        case 'Sat':
         case '6':
             dayString = 'saturday'
             break
+        case 'Sun':
         case '7':
             dayString = 'sunday'
             break
