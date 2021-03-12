@@ -19,7 +19,7 @@ const ProgramList = (props: Props) => {
         return (
             <TouchableHighlight
                 key={program.id + program.time_start}
-                style={styles.listItem}
+                style={isHovered ? styles.listItemHover : styles.listItem}
                 onFocus={() => {
                     onHoverProgram(program)
                 }}>
@@ -49,7 +49,7 @@ const ProgramList = (props: Props) => {
                         <View style={styles.imageContainer}>
                             {
                                 program.logo ?
-                                <Image source={{uri: program.logo}} style={styles.imageHover}/> :
+                                <Image source={{uri: program.logo}} style={styles.image}/> :
                                 <Image source={require('./../images/wish-album.png')} style={styles.imageHover}/>
                             }
                         </View>
@@ -85,27 +85,31 @@ const styles = StyleSheet.create({
         position: 'relative',
         marginBottom: 2
     },
+    listItemHover: {
+        marginRight: 10,
+        paddingTop: 5,
+    },
     listItem: {
-        marginRight: 5,
+        marginRight: 10,
         paddingTop: 5,
     },
     imageContainer: {
-        padding: 7,
         opacity: .5,
     },
     imageContainerHover: {
-        padding: 7,
+        padding: 3,
         opacity: 1,
     },
     image: {
         height: 180,
         width: 180,
         resizeMode: 'cover',
-        opacity: 0.5
+        opacity: 0.5,
+        marginTop: 3,
     },
     imageHover: {
-        height: 170,
-        width: 170,
+        height: 180,
+        width: 180,
         resizeMode: 'cover',
     },
     detailsContainer: {

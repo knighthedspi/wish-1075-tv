@@ -32,7 +32,7 @@ const TvContainer = () => {
             setLiveProgram(programs)
 
             const liveProgram = programs.find((x: Program) => x.live)
-            setHoveredProgram(liveProgram)
+            // setHoveredProgram(liveProgram)
 
             setPrograms(programs)
         }).catch(e => {
