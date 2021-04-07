@@ -9,8 +9,14 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent intent = new Intent(this, MainActivity.class);
+//        Intent intent = new Intent(this, MainActivity.class);
+//        startActivity(intent);
+
+        Intent intent = new Intent("com.huawei.appmarket.intent.action.AppDetail");
+        intent.setPackage("com.huawei.appmarket");
+        intent.putExtra("APP_PACKAGENAME", "com.wishfm.tvapp");
         startActivity(intent);
+
         finish();
     }
 }

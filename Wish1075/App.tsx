@@ -9,7 +9,6 @@ import {
 import SplashScreen from 'react-native-splash-screen';
 
 import 'react-native/tvos-types.d';
-import TvContainer from './src/components/tv.container';
 
 declare const global: {HermesInternal: null | {}};
 
@@ -30,7 +29,6 @@ const App = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <TvContainer></TvContainer>
         </ScrollView>
       </SafeAreaView>
     </>
