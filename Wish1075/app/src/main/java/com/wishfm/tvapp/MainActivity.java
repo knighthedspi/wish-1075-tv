@@ -13,10 +13,5 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        Intent intent = new Intent("com.huawei.appmarket.appmarket.intent.action.AppDetail.withid");
-//        intent.setPackage("com.wishfm.tvapp");
-//        intent.putExtra("appId", "C103780375");
-//        startActivity(intent);
     }
 }
