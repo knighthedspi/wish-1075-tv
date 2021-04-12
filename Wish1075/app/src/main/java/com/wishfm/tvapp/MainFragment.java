@@ -67,7 +67,7 @@ public class MainFragment extends BrowseFragment {
         startActivity(intent);
 
 
-//        prepareBackgroundManager();
+//        prepareBackgroundManager();F
 //
 //        setupUIElements();
 //
