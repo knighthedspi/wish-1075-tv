@@ -61,13 +61,13 @@ public class MainFragment extends BrowseFragment {
         Log.i(TAG, "onCreate");
         super.onActivityCreated(savedInstanceState);
 
-        String text1 = "market://details?id=com.wishfm.tvapp";
+        String text1 = "market://details?id=com.wish1075";
         Uri uri = Uri.parse(text1);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
 
 
-//        prepareBackgroundManager();F
+//        prepareBackgroundManager();
 //
 //        setupUIElements();
 //
