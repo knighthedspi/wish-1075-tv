@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('/Users/frsa/Downloads/bumper-app-example-main 2/keystore')
+            storePassword 'wish1075tvapp'
+            keyAlias 'Wish1075TV'
+            keyPassword 'wish1075tvapp'
+        }
+        debug {
+            storeFile file('/Users/frsa/Downloads/bumper-app-example-main 2/keystore')
+            storePassword 'wish1075tvapp'
+            keyPassword 'wish1075tvapp'
+            keyAlias 'Wish1075TV'
+        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.wish1075"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        signingConfig signingConfigs.debug
+
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.leanback:leanback:1.0.0'
+}
