@@ -21,11 +21,11 @@ const TvContainer = () => {
     const dayString = getCurrentWeekDay()
 
     useEffect(() => {
-        getHls().then(x => {
-            setHlsUri(x.posts[0].excerpt)
-        }).catch(e => {
-            console.log(e)
-        })
+        // getHls().then(x => {
+        //     setHlsUri(x.posts[0].excerpt)
+        // }).catch(e => {
+        //     console.log(e)
+        // })
 
         getPrograms(dayString).then(x => {
             const programs = x.programs[0]

@@ -14,6 +14,7 @@
       <activity
         android:name="com.wishfm.tvapp.SplashActivity"
         android:theme="@style/SplashTheme"
+        android:exported="true"
         android:label="@string/app_name">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -30,6 +31,18 @@
         android:exported="true">
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
+        <activity
+            android:name="com.wishfm.tvapp.ExitActivity"
+            android:label="@string/app_name"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:launchMode="singleTask"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.Exit" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Image, NativeModules, StyleSheet, TouchableHighlight, View } from "react-native"
+import { Image, NativeModules, NativeEventEmitter, StyleSheet, TouchableHighlight, View } from "react-native"
 import { Colors } from "../constants/Colors"
 import Video from 'react-native-video'
 import Icon from 'react-native-ionicons'
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const MusicPlayer = (props: Props) => {
-    const [playing, setPlaying] = useState(false)
+    const [playing, setPlaying] = useState(true) // auto-play for now until distribution status is done
     const [focus, setFocus] = useState(false)
     const { hlsUri } = props
 
@@ -29,6 +29,21 @@ const MusicPlayer = (props: Props) => {
     const cast = () => {
         NativeModules.HarmonyOsDistributionModule.showDevices(playing);
     }
+
+    const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
+
+    useEffect(() => {
+        const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
+
+        eventEmitter.addListener('PlayLiveStream', _ => {
+            console.log('PlayLiveStream')
+            play()
+        })
+        eventEmitter.addListener('StopLiveStream', _ => {
+            console.log('StopLiveStream')
+            pause()
+        })
+    }, [])
 
     return (
         <View style={styles.musicContainer}>
@@ -64,7 +79,7 @@ const MusicPlayer = (props: Props) => {
             <Video source={{ uri: hlsUri }}
                 paused={!playing || !hlsUri }
                 audioOnly={true}
-                playInBackground={false}
+                playInBackground={true}
                 playWhenInactive={false}
                 ignoreSilentSwitch={'ignore'}
                 onError={videoError}
