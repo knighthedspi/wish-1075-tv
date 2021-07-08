@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Image, StyleSheet, TouchableHighlight, View } from "react-native"
+import { Image, NativeModules, StyleSheet, TouchableHighlight, View } from "react-native"
 import { Colors } from "../constants/Colors"
 import Video from 'react-native-video'
 import Icon from 'react-native-ionicons'
@@ -26,6 +26,10 @@ const MusicPlayer = (props: Props) => {
         setPlaying(false)
     }
 
+    const cast = () => {
+        NativeModules.HarmonyOsDistributionModule.showDevices(playing);
+    }
+
     return (
         <View style={styles.musicContainer}>
             <View style={styles.buttonContainer}>
@@ -50,6 +54,11 @@ const MusicPlayer = (props: Props) => {
                         </TouchableHighlight>
                     }
                 </View>
+                <View>
+                    <TouchableHighlight onPress={cast}>
+                        <Image source={require('./../images/cast.png')} style={styles.image}/>
+                    </TouchableHighlight>
+                </View>
             </View>
 
             <Video source={{ uri: hlsUri }}
@@ -68,13 +77,14 @@ const MusicPlayer = (props: Props) => {
 const styles = StyleSheet.create({
     musicContainer: {
         width: '100%',
-        height: 80,
+        height: 100,
         marginTop: 20,
     },
     buttonContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: 'column',
     },
     backgroundVideo: {
         position: 'absolute',
@@ -106,6 +116,11 @@ const styles = StyleSheet.create({
     },
     buttonPlay: {
         marginLeft: 7
+    },
+    image: {
+        marginTop: 10,
+        width: 30,
+        height: 30,
     }
 })
 
