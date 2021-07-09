@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Image, StyleSheet, TouchableHighlight, View } from "react-native"
+import { Image, NativeModules, NativeEventEmitter, StyleSheet, TouchableHighlight, View } from "react-native"
 import { Colors } from "../constants/Colors"
 import Video from 'react-native-video'
 import Icon from 'react-native-ionicons'
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const MusicPlayer = (props: Props) => {
-    const [playing, setPlaying] = useState(false)
+    const [playing, setPlaying] = useState(true) // auto-play for now until distribution status is done
     const [focus, setFocus] = useState(false)
     const { hlsUri } = props
 
@@ -25,6 +25,25 @@ const MusicPlayer = (props: Props) => {
     const pause = () => {
         setPlaying(false)
     }
+
+    const cast = () => {
+        NativeModules.HarmonyOsDistributionModule.showDevices(playing);
+    }
+
+    const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
+
+    useEffect(() => {
+        const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
+
+        eventEmitter.addListener('PlayLiveStream', _ => {
+            console.log('PlayLiveStream')
+            play()
+        })
+        eventEmitter.addListener('StopLiveStream', _ => {
+            console.log('StopLiveStream')
+            pause()
+        })
+    }, [])
 
     return (
         <View style={styles.musicContainer}>
@@ -50,12 +69,17 @@ const MusicPlayer = (props: Props) => {
                         </TouchableHighlight>
                     }
                 </View>
+                <View>
+                    <TouchableHighlight onPress={cast}>
+                        <Image source={require('./../images/cast.png')} style={styles.image}/>
+                    </TouchableHighlight>
+                </View>
             </View>
 
             <Video source={{ uri: hlsUri }}
                 paused={!playing || !hlsUri }
                 audioOnly={true}
-                playInBackground={false}
+                playInBackground={true}
                 playWhenInactive={false}
                 ignoreSilentSwitch={'ignore'}
                 onError={videoError}
@@ -68,13 +92,14 @@ const MusicPlayer = (props: Props) => {
 const styles = StyleSheet.create({
     musicContainer: {
         width: '100%',
-        height: 80,
+        height: 100,
         marginTop: 20,
     },
     buttonContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: 'column',
     },
     backgroundVideo: {
         position: 'absolute',
@@ -106,6 +131,11 @@ const styles = StyleSheet.create({
     },
     buttonPlay: {
         marginLeft: 7
+    },
+    image: {
+        marginTop: 10,
+        width: 30,
+        height: 30,
     }
 })
 

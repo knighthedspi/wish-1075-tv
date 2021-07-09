@@ -1,8 +1,12 @@
 package com.wishfm.tvapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import org.devio.rn.splashscreen.SplashScreen;
 import com.facebook.react.ReactActivity;
+import com.facebook.react.ReactInstanceManager;
+import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 public class MainActivity extends ReactActivity {
 
@@ -19,5 +23,18 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
     SplashScreen.show(this);
     super.onCreate(savedInstanceState);
+
+    Intent intent = getIntent();
+    boolean isPlaying = intent.getBooleanExtra("PlayLiveStream", false);
+
+    ReactInstanceManager mReactInstanceManager = getReactNativeHost().getReactInstanceManager();
+    mReactInstanceManager.addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
+      public void onReactContextInitialized(ReactContext validContext) {
+        if (isPlaying) {
+          validContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                  .emit("PlayLiveStream", null);
+        }
+      }
+    });
   }
 }
