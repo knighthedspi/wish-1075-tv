@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StackLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:id="$+id:stacklayout"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:background_element="$graphic:background_ability_main"
+    ohos:bottom_margin="20vp">
+
+    <DirectionalLayout
+        ohos:height="match_parent"
+        ohos:width="match_parent"
+        ohos:orientation="vertical"
+        ohos:left_padding="10vp"
+        ohos:right_padding="10vp">
+        <Text
+            ohos:id="$+id:list_title"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:layout_alignment="horizontal_center"
+            ohos:top_margin="5vp"
+            ohos:bottom_margin="5vp"
+            ohos:text_alignment="horizontal_center"
+            ohos:text="Start Android Apk"
+            ohos:text_color="#FF0C0000"
+            ohos:text_size="16fp"/>
+        <Text
+            ohos:background_element="#FF031841"
+            ohos:width="match_parent"
+            ohos:height="3"/>
+        <Button
+            xmlns:ohos="http://schemas.huawei.com/res/ohos"
+            ohos:id="$+id:button_confirm"
+            ohos:height="match_parent"
+            ohos:width="match_parent"
+            ohos:layout_alignment="horizontal_center"
+            ohos:left_margin="5vp"
+            ohos:right_margin="5vp"
+            ohos:text="Confirm"
+            ohos:text_size="20fp"/>
+    </DirectionalLayout>
+</StackLayout>

@@ -1,0 +1,57 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.huawei.ohos.app'
+
+ohos {
+    signingConfigs {
+        debug {
+            storeFile file('D:\\Codes\\HarmonyApp\\cp-app\\wish1075\\Huawei\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
+            storePassword '0000001EA6FBADEF56D53C17EA40700A81A755618A7B0307212B0D36E7060827B6778E6217669974C1C2A2901819'
+            keyAlias = 'com-wishfm-mobileapp'
+            keyPassword '0000001EF50DE2B0D18F2E1D26751725FF8C819370674566ABFB8BBDBAF050E73E7348C6F5192B08C0053F7191EF'
+            signAlg = 'SHA256withECDSA'
+            profile file('D:\\Codes\\HarmonyApp\\cp-app\\wish1075\\Huawei\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debug2Debug.p7b')
+            certpath file('D:\\Codes\\HarmonyApp\\cp-app\\wish1075\\Huawei\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debug2.cer')
+        }
+        release {
+            storeFile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
+            storePassword '0000001E3A3DC71F25B6F914A225046CEB554C390DFBA06003780E20479416C5452FCD58DDA99C8E6DBF1A3D957B'
+            keyAlias = 'com-wishfm-mobileapp'
+            keyPassword '0000001E9DB13D1D6E015AB7006B019C08BE2B37AD2BD36E08EFEE5E14CC0E6CBD5304BD92ADDCF0B895679B58D2'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_releaseRelease.p7b')
+            certpath file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_release.cer')
+        }
+    }
+    compileSdkVersion 5
+    defaultConfig {
+        compatibleSdkVersion 5
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://mirrors.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.huawei.ohos:hap:2.4.4.2'
+        classpath 'com.huawei.ohos:decctest:1.0.0.7'
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://mirrors.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        jcenter()
+    }
+}

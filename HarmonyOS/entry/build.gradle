@@ -1,0 +1,71 @@
+apply plugin: 'com.huawei.ohos.hap'
+apply plugin: 'com.huawei.ohos.decctest'
+
+//For instructions on signature configuration
+ohos {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
+            storePassword '0000001ECD574E629E58A7B70D8BC6A0D9B3FF02F6DF0170628D7E0BC65044E6D56605212F3837A54E5F3FE900C9'
+            keyAlias = 'com-wishfm-mobileapp'
+            keyPassword '0000001E63C963707E3FE60CCCAEEBE0086E0705B8E7E620169A73D5F6C7D6690AF27BEBFF99C33C8089566E00ED'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\frsa\\Downloads\\wish-1075-all-in-one-2\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debugDebug_koken.p7b')
+            certpath file('C:\\Users\\frsa\\Downloads\\wish-1075-all-in-one-2\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debug_koken.cer')
+        }
+        release {
+            storeFile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
+            storePassword '0000001E976471583C5EED72EC7FA3D69887CE75FCCA07AA19276703A956089B66763548F2BB5E7BBB4F8DE816F2'
+            keyAlias = 'com-wishfm-mobileapp'
+            keyPassword '0000001EC15B1C13E27FFFE715D02493D0B404E0BE06A4A448C2E8AEAFBB81C35FC4A4602B3E4DD887A962AEC6C1'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_releaseRelease.p7b')
+            certpath file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_release.cer')
+        }
+    }
+
+    //APIVersion 5 is the first SDK version that supports hybrid packaging and can be updated based on the latest version.
+    compileSdkVersion 5
+    defaultConfig {
+        compatibleSdkVersion 5
+    }
+
+    buildTypes {
+        release {
+            proguardOpt {
+                proguardEnabled false
+                rulesFiles 'proguard-rules.pro'
+            }
+        }
+    }
+
+    /****************************
+     * For Hybrid Application Packaging
+     ****************************/
+    def legacyApkName = "Wish1075"
+    legacyApkOptions {
+        signConfig {
+            storeFile file("C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forAndroid\\wish1075-release.jks")
+            // If the JKS algorithm is not EC algorithm, Separately configured shell APK signature material
+        }
+
+        // The values must be the same as the value of android:versionCode and android:versionName in the AndroidManifest.xml file of LegacyApk.
+        legacyVersionCode "30005"
+        legacyVersionName "3.0.1"
+
+        // for android debug apk
+        //legacyApk "D:\\Codes\\HarmonyApp\\cp-app\\wish1075\\Huawei\\wish1075-react-native\\Wish1075\\android\\app\\build\\outputs\\apk\\debug\\${legacyApkName}-${legacyVersionName}-debug-entry.apk"
+        // for android release apk
+        legacyApk "C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\HarmonyOS-package\\wish1075-react-native\\Wish1075\\android\\app\\release\\${legacyApkName}-${legacyVersionName}-release-entry.apk"
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+    testImplementation 'junit:junit:4.13'
+    ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
+}
+decc {
+    supportType = ['html', 'xml']
+}

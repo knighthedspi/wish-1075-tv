@@ -1,0 +1,49 @@
+apply plugin: 'com.huawei.ohos.hap'
+apply plugin: 'com.huawei.ohos.decctest'
+ohos {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\frsa\\Downloads\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
+            storePassword '0000001EB7AB6E101018EF3EE377B3EC3A1BCE5A3E09803B22B26B74F80807E550ACF06BD4264DAA0104C1BCBBEF'
+            keyAlias = 'com-wishfm-mobileapp'
+            keyPassword '0000001EAAADCDB620389C4BCE92C320050F2165819E3103670A9C31164C38BB30546431FB9B19A76BB163A44DA9'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\frsa\\Downloads\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debugDebug_koen.p7b')
+            certpath file('C:\\Users\\frsa\\Downloads\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debug_koen.cer')
+        }
+        release {
+            storeFile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
+            storePassword '0000001ED4E687B9CF41270BF0BEAED79690BB55CDD1738A2BB54955A13447ED0805E136CB3D3C75AD9EF59A4DDC'
+            keyAlias = 'com-wishfm-mobileapp'
+            keyPassword '0000001E5BA8DC65F9A750307ACA6EF1145087264212437A5E01EF89BFD1D0424D3C3342C9BC1B7C471E59A8BA42'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_releaseRelease.p7b')
+            certpath file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_release.cer')
+        }
+    }
+
+    compileSdkVersion 5
+    defaultConfig {
+        compatibleSdkVersion 5
+    }
+
+    buildTypes {
+        release {
+            proguardOpt {
+                proguardEnabled false
+                rulesFiles 'proguard-rules.pro'
+            }
+        }
+    }
+    entryModules "entry"
+}
+
+dependencies {
+    entryImplementation project(':entry')
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+    testImplementation 'junit:junit:4.13'
+    ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
+}
+decc {
+    supportType = ['html', 'xml']
+}
