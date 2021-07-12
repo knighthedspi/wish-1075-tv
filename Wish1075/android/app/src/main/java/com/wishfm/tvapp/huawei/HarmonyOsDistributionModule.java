@@ -20,8 +20,8 @@ public class HarmonyOsDistributionModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void showDevices(boolean isPlaying) {
         Intent intent = new Intent();
-        intent.setClassName("com.wishfm.mobileapp",
-                "com.wishfm.mobileapp.fascheduler.MainAbility");
+        intent.setClassName("com.wishfm.tvapp",
+                "com.wishfm.tvapp.fascheduler.MainAbility");
         intent.setAction("action.fascheduler.DeviceListDialogSlice");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra("PlayLiveStream", isPlaying);

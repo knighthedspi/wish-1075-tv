@@ -1,4 +1,4 @@
-package com.wishfm.mobileapp.fascheduler;
+package com.wishfm.tvapp.fascheduler;
 
 import ohos.aafwk.ability.delegation.AbilityDelegatorRegistry;
 import org.junit.Test;

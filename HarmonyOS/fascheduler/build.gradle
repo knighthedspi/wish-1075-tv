@@ -3,13 +3,13 @@ apply plugin: 'com.huawei.ohos.decctest'
 ohos {
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\frsa\\Downloads\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
-            storePassword '0000001EB7AB6E101018EF3EE377B3EC3A1BCE5A3E09803B22B26B74F80807E550ACF06BD4264DAA0104C1BCBBEF'
-            keyAlias = 'com-wishfm-mobileapp'
-            keyPassword '0000001EAAADCDB620389C4BCE92C320050F2165819E3103670A9C31164C38BB30546431FB9B19A76BB163A44DA9'
+            storeFile file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\wish1075-tv.p12')
+            storePassword '0000001E5576237EECF16DE1D00B20410EA2C8BD3F9C79C29D99854FA6D7735B4F4D39E8BA453A0F438D6D9C8A1F'
+            keyAlias = 'com-wishfm-tvapp'
+            keyPassword '0000001E6083C1D431AF77FBAB7FE3D95FB5CA9A8A808C59FF26D6FEF9F520F6B83A3A38664E4A2A465E128B5050'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\frsa\\Downloads\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debugDebug_koen.p7b')
-            certpath file('C:\\Users\\frsa\\Downloads\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debug_koen.cer')
+            profile file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\Wish1075TVCertificate_debugDebug.p7b')
+            certpath file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\Wish1075TVCertificate_debug.cer')
         }
         release {
             storeFile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')

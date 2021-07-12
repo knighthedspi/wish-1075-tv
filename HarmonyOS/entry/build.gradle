@@ -5,13 +5,13 @@ apply plugin: 'com.huawei.ohos.decctest'
 ohos {
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
-            storePassword '0000001ECD574E629E58A7B70D8BC6A0D9B3FF02F6DF0170628D7E0BC65044E6D56605212F3837A54E5F3FE900C9'
-            keyAlias = 'com-wishfm-mobileapp'
-            keyPassword '0000001E63C963707E3FE60CCCAEEBE0086E0705B8E7E620169A73D5F6C7D6690AF27BEBFF99C33C8089566E00ED'
+            storeFile file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\wish1075-tv.p12')
+            storePassword '0000001E66C0C983FB6CBE537F056D47D9ACD88E92242B1C45382FA12B94AA8400A8092285F8593AD9CE3BB337D8'
+            keyAlias = 'com-wishfm-tvapp'
+            keyPassword '0000001EFB378A8CA440F81D159A3A1EBE76F5B02F39281195C6BE48CA6D66E035378AFDCED1C9545074B4E0CCF7'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\frsa\\Downloads\\wish-1075-all-in-one-2\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debugDebug_koken.p7b')
-            certpath file('C:\\Users\\frsa\\Downloads\\wish-1075-all-in-one-2\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debug_koken.cer')
+            profile file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\Wish1075TVCertificate_debugDebug.p7b')
+            certpath file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\Wish1075TVCertificate_debug.cer')
         }
         release {
             storeFile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
@@ -45,7 +45,8 @@ ohos {
     def legacyApkName = "Wish1075"
     legacyApkOptions {
         signConfig {
-            storeFile file("C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forAndroid\\wish1075-release.jks")
+            storeFile file("C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\wish1075-tv.p12")
+//            storeFile file("C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forAndroid\\wish1075-release.jks")
             // If the JKS algorithm is not EC algorithm, Separately configured shell APK signature material
         }
 

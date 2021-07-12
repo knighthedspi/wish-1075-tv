@@ -1,4 +1,4 @@
-package com.wishfm.mobileapp;
+package com.wishfm.tvapp;
 
 import ohos.aafwk.ability.delegation.AbilityDelegatorRegistry;
 import org.junit.Test;

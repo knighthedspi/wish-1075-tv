@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.wishfm.mobileapp",
+    "bundleName": "com.wishfm.tvapp",
     "vendor": "BMPI",
     "version": {
       "code": 1000000,
@@ -11,7 +11,7 @@
     "default": {}
   },
   "module": {
-    "package": "com.wishfm.mobileapp.fascheduler",
+    "package": "com.wishfm.tvapp.fascheduler",
     "name": ".MyApplication",
     "deviceType": [
       "phone",
@@ -28,7 +28,7 @@
       {
         "orientation": "unspecified",
         "visible": true,
-        "name": "com.wishfm.mobileapp.fascheduler.MainAbility",
+        "name": "com.wishfm.tvapp.fascheduler.MainAbility",
         "icon": "$media:icon",
         "description": "$string:mainability_description",
         "label": "$string:app_name",

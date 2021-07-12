@@ -1,4 +1,4 @@
-package com.wishfm.mobileapp.fascheduler;
+package com.wishfm.tvapp.fascheduler;
 
 import org.junit.Test;
 
