@@ -3,22 +3,22 @@ apply plugin: 'com.huawei.ohos.decctest'
 ohos {
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\wish1075-tv.p12')
-            storePassword '0000001E5576237EECF16DE1D00B20410EA2C8BD3F9C79C29D99854FA6D7735B4F4D39E8BA453A0F438D6D9C8A1F'
-            keyAlias = 'com-wishfm-tvapp'
-            keyPassword '0000001E6083C1D431AF77FBAB7FE3D95FB5CA9A8A808C59FF26D6FEF9F520F6B83A3A38664E4A2A465E128B5050'
+            storeFile file('../../wish1075-certificate/forHarmonyOS/wish1075.p12')
+            storePassword '0000001E339ACD88CC5F16C13A83CB335B64E0FE7DC085888E84017F557A1203B0F1F64D1720FF9E7067C04832EE'
+            keyAlias = 'com-wishfm-mobileapp'
+            keyPassword '0000001EBCEB3BCB6024BA32E52FE21DC1A2B85AA28618049C8A268B3FFF49FB3C637A1C0756C25EA13781B08F8C'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\Wish1075TVCertificate_debugDebug.p7b')
-            certpath file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\Wish1075TVCertificate_debug.cer')
+            profile file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_debug2Debug.p7b')
+            certpath file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_debug2.cer')
         }
         release {
-            storeFile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
-            storePassword '0000001ED4E687B9CF41270BF0BEAED79690BB55CDD1738A2BB54955A13447ED0805E136CB3D3C75AD9EF59A4DDC'
+            storeFile file('../../wish1075-certificate/forHarmonyOS/wish1075.p12')
+            storePassword '0000001E326271F08BA924DFCDA0FE2E626DCAC8E85C6BD05AA1EF3B8EF6E631903119013144217B61909F81F434'
             keyAlias = 'com-wishfm-mobileapp'
-            keyPassword '0000001E5BA8DC65F9A750307ACA6EF1145087264212437A5E01EF89BFD1D0424D3C3342C9BC1B7C471E59A8BA42'
+            keyPassword '0000001EEF5A64502AA63ADFDAB9619A60797D92E72A5A82A6E85C8025E006724E27B25488901FE6ED1A406AA28D'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_releaseRelease.p7b')
-            certpath file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_release.cer')
+            profile file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_releaseRelease.p7b')
+            certpath file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_release.cer')
         }
     }
 

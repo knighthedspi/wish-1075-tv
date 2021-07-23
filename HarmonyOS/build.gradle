@@ -13,13 +13,13 @@ ohos {
             certpath file('D:\\Codes\\HarmonyApp\\cp-app\\wish1075\\Huawei\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_debug2.cer')
         }
         release {
-            storeFile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
-            storePassword '0000001E3A3DC71F25B6F914A225046CEB554C390DFBA06003780E20479416C5452FCD58DDA99C8E6DBF1A3D957B'
+            storeFile file('D:\\Codes\\HarmonyApp\\cp-app\\wish1075\\Huawei\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
+            storePassword '0000001EAB052745ACEF1737FBB81562B66CE06A1CD3446DF9F3F3E3CD1886AF71946106A034164CD9A94F235D27'
             keyAlias = 'com-wishfm-mobileapp'
-            keyPassword '0000001E9DB13D1D6E015AB7006B019C08BE2B37AD2BD36E08EFEE5E14CC0E6CBD5304BD92ADDCF0B895679B58D2'
+            keyPassword '0000001ED74B224D5550662F8FB2FFE761099C70D171A5550DA09EA060AF86E76B05823F43395C723693766AF983'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_releaseRelease.p7b')
-            certpath file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_release.cer')
+            profile file('D:\\Codes\\HarmonyApp\\cp-app\\wish1075\\Huawei\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_releaseRelease.p7b')
+            certpath file('D:\\Codes\\HarmonyApp\\cp-app\\wish1075\\Huawei\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_release.cer')
         }
     }
     compileSdkVersion 5
