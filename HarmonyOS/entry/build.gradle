@@ -5,22 +5,22 @@ apply plugin: 'com.huawei.ohos.decctest'
 ohos {
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\wish1075-tv.p12')
-            storePassword '0000001E66C0C983FB6CBE537F056D47D9ACD88E92242B1C45382FA12B94AA8400A8092285F8593AD9CE3BB337D8'
-            keyAlias = 'com-wishfm-tvapp'
-            keyPassword '0000001EFB378A8CA440F81D159A3A1EBE76F5B02F39281195C6BE48CA6D66E035378AFDCED1C9545074B4E0CCF7'
+            storeFile file('../../wish1075-certificate/forHarmonyOS/wish1075.p12')
+            storePassword '0000001E5D265D800DF08374A5446F5C13093968AB36945C862E6F31FB49C9A545CA57AB019A0805838C4112496D'
+            keyAlias = 'com-wishfm-mobileapp'
+            keyPassword '0000001ED337D7520A3B0121DD40DA0E484571CCF813106EDBC6F63D1D5E2461E5F0C05E7E8544AC838ADB533CA9'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\Wish1075TVCertificate_debugDebug.p7b')
-            certpath file('C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\Wish1075TVCertificate_debug.cer')
+            profile file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_debug2Debug.p7b')
+            certpath file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_debug2.cer')
         }
         release {
-            storeFile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\wish1075.p12')
-            storePassword '0000001E976471583C5EED72EC7FA3D69887CE75FCCA07AA19276703A956089B66763548F2BB5E7BBB4F8DE816F2'
+            storeFile file('../../wish1075-certificate/forHarmonyOS/wish1075.p12')
+            storePassword '0000001EBE14713739B4DB54A681787C8737E24FC2D310B6E2FD767CA684BE9643C7A4C9757B50A6C9D1062E5979'
             keyAlias = 'com-wishfm-mobileapp'
-            keyPassword '0000001EC15B1C13E27FFFE715D02493D0B404E0BE06A4A448C2E8AEAFBB81C35FC4A4602B3E4DD887A962AEC6C1'
+            keyPassword '0000001E6AE0C32E1C1BE767BFEA7A1B519A06070E5DF4C5E63E30923A330827971CEE791CE25401AEC2307C66A2'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_releaseRelease.p7b')
-            certpath file('C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forHarmonyOS\\Wish1075Certificate_release.cer')
+            profile file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_releaseRelease.p7b')
+            certpath file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_release.cer')
         }
     }
 
@@ -45,8 +45,7 @@ ohos {
     def legacyApkName = "Wish1075"
     legacyApkOptions {
         signConfig {
-            storeFile file("C:\\Users\\frsa\\Desktop\\Huawei Development\\WishTV\\config\\wish1075-tv.p12")
-//            storeFile file("C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\wish1075-certificate\\forAndroid\\wish1075-release.jks")
+            storeFile file("../../wish1075-certificate/forAndroid/wish1075-release.jks")
             // If the JKS algorithm is not EC algorithm, Separately configured shell APK signature material
         }
 
@@ -55,9 +54,9 @@ ohos {
         legacyVersionName "3.0.1"
 
         // for android debug apk
-        //legacyApk "D:\\Codes\\HarmonyApp\\cp-app\\wish1075\\Huawei\\wish1075-react-native\\Wish1075\\android\\app\\build\\outputs\\apk\\debug\\${legacyApkName}-${legacyVersionName}-debug-entry.apk"
+        //legacyApk "../../wish1075-react-native/Wish1075/android/app/build/outputs/apk/debug/${legacyApkName}-${legacyVersionName}-debug-entry.apk"
         // for android release apk
-        legacyApk "C:\\Users\\frsa\\source\\repos\\Wish-HarmonyOS\\HarmonyOS-package\\wish1075-react-native\\Wish1075\\android\\app\\release\\${legacyApkName}-${legacyVersionName}-release-entry.apk"
+        legacyApk "../../wish1075-react-native/Wish1075/android/app/release/${legacyApkName}-${legacyVersionName}-release-entry.apk"
     }
 
 }

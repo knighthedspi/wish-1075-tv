@@ -12,7 +12,6 @@
         ohos:width="match_content"
         ohos:padding="4vp"
         ohos:text="Item0"
-        ohos:text_color="#FF0C0000"
         ohos:text_size="16fp"
         ohos:layout_alignment="left|vertical_center"/>
 </DirectionalLayout>

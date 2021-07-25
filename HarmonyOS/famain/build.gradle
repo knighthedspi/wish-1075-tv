@@ -1,0 +1,47 @@
+apply plugin: 'com.huawei.ohos.hap'
+apply plugin: 'com.huawei.ohos.decctest'
+ohos {
+    signingConfigs {
+        debug {
+            storeFile file('../../wish1075-certificate/forHarmonyOS/wish1075.p12')
+            storePassword '0000001EA41F160260DB345D1B53A46BD450BFAF4AC11B77171A73A9A0C016008FD88F3CD6678BED41112E61077F'
+            keyAlias = 'com-wishfm-mobileapp'
+            keyPassword '0000001E907D18E39AA14B795B679D125CA7777B5D00D39BF2522F8D1F3101BBBE3FEE7BD2D58FAAC8F6BE0FC8D3'
+            signAlg = 'SHA256withECDSA'
+            profile file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_debug2Debug.p7b')
+            certpath file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_debug2.cer')
+        }
+        release {
+            storeFile file('../../wish1075-certificate/forHarmonyOS/wish1075.p12')
+            storePassword '0000001EB10809478308A11E7B5E05C02F9C4A62210359993DE18C238A6CC61A646B592D814B89F4834E7E542DD2'
+            keyAlias = 'com-wishfm-mobileapp'
+            keyPassword '0000001ED9439315F14522AF020784880D670941545BAB1F7B9E1C7E33F5BD14D6C4BB89A31A65B4B6678264C421'
+            signAlg = 'SHA256withECDSA'
+            profile file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_releaseRelease.p7b')
+            certpath file('../../wish1075-certificate/forHarmonyOS/Wish1075Certificate_release.cer')
+        }
+    }
+    compileSdkVersion 5
+    defaultConfig {
+        compatibleSdkVersion 5
+    }
+    buildTypes {
+        release {
+            proguardOpt {
+                proguardEnabled false
+                rulesFiles 'proguard-rules.pro'
+            }
+        }
+    }
+    entryModules "entry"
+}
+
+dependencies {
+    entryImplementation project(':entry')
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+    testImplementation 'junit:junit:4.13'
+    ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
+}
+decc {
+    supportType = ['html', 'xml']
+}
