@@ -18,11 +18,9 @@ public class DeviceItemProvider extends BaseItemProvider {
     private Listener listener;
     private static final int COLOR = 0x33FFFFFF;
     private static final int CORNER_RADIUS = 20;
-    private static final int FOCUS_BACKGROUND_COLOR = 0xE5FFFFFF;
+    private static final int FOCUS_BACKGROUND_COLOR = 0xE5CCCCCC;
     private static final int TEXT_COLOR = 0xFF0C0000;
-    private static final int FOCUS_TEXT_COLOR = 0xE5000000;
     private static final int UNFOCUS_BACKGROUND_COLOR = 0x33FFFFFF;
-    private static final int UNFOCUS_TEXT_COLOR = 0xE5FFFFFF;
     private static final String TAG = "Device Item";
 
     public interface Listener {
@@ -45,18 +43,16 @@ public class DeviceItemProvider extends BaseItemProvider {
         shapeElement.setCornerRadius(CORNER_RADIUS);
         if (hasFocus) {
             shapeElement.setRgbColor(RgbColor.fromArgbInt(FOCUS_BACKGROUND_COLOR));
-            component.setBackground(shapeElement);
 
             ComponentHolder componentHolder = (ComponentHolder) component.getTag();
             LogUtil.debug(TAG, "Has focus at position: " + componentHolder.position);
-            componentHolder.deviceName.setTextColor(new Color(FOCUS_TEXT_COLOR));
+            componentHolder.deviceName.setBackground(shapeElement);
         } else {
-//            shapeElement.setRgbColor(RgbColor.fromArgbInt(UNFOCUS_BACKGROUND_COLOR));
-//            component.setBackground(shapeElement);
+            shapeElement.setRgbColor(RgbColor.fromArgbInt(UNFOCUS_BACKGROUND_COLOR));
 
             ComponentHolder componentHolder = (ComponentHolder) component.getTag();
             LogUtil.debug(TAG, "Lost focus at position: " + componentHolder.position);
-            componentHolder.deviceName.setTextColor(new Color(UNFOCUS_TEXT_COLOR));
+            componentHolder.deviceName.setBackground(shapeElement);
         }
     };
 
