@@ -14,16 +14,13 @@
     "package": "com.wishfm.mobileapp.famain",
     "name": ".MyApplication",
     "deviceType": [
-      "phone",
-      "tablet",
-      "wearable",
-      "tv"
+      "wearable"
     ],
     "distro": {
       "deliveryWithInstall": true,
-      "installationFree": true,
+      "installationFree": false,
       "moduleName": "famain",
-      "moduleType": "feature"
+      "moduleType": "entry"
     },
     "abilities": [
       {

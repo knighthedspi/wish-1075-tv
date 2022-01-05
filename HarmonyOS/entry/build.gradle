@@ -38,27 +38,6 @@ ohos {
             }
         }
     }
-
-    /****************************
-     * For Hybrid Application Packaging
-     ****************************/
-    def legacyApkName = "Wish1075"
-    legacyApkOptions {
-        signConfig {
-            storeFile file("../../wish1075-certificate/forAndroid/wish1075-release.jks")
-            // If the JKS algorithm is not EC algorithm, Separately configured shell APK signature material
-        }
-
-        // The values must be the same as the value of android:versionCode and android:versionName in the AndroidManifest.xml file of LegacyApk.
-        legacyVersionCode "30005"
-        legacyVersionName "3.0.1"
-
-        // for android debug apk
-        //legacyApk "../../wish1075-react-native/Wish1075/android/app/build/outputs/apk/debug/${legacyApkName}-${legacyVersionName}-debug-entry.apk"
-        // for android release apk
-        legacyApk "../../wish1075-react-native/Wish1075/android/app/release/${legacyApkName}-${legacyVersionName}-release-entry.apk"
-    }
-
 }
 
 dependencies {

@@ -16,8 +16,7 @@
     "deviceType": [
       "phone",
       "tablet",
-      "tv",
-      "wearable"
+      "tv"
     ],
     "distro": {
       "deliveryWithInstall": true,
@@ -37,7 +36,7 @@
             ]
           }
         ],
-        "orientation": "unspecified",
+        "orientation": "landscape",
         "name": "com.wishfm.mobileapp.MainAbility",
         "icon": "$media:icon",
         "description": "$string:mainability_description",
